@@ -9,6 +9,8 @@ Concepts learned in this project
   - Json Decoding
   - Async Images loading
 * Displaying maps using coordinates
+  - Adding marker on coordinates
 * Searching
 * Sort (Alphabetically)
 * Displaying data from url in an organised way
+
