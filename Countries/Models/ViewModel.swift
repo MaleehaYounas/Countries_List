@@ -12,10 +12,7 @@ class ViewModel: ObservableObject {
     @Published var results: [Country] = []
     private let network = Network()
     private var url:String = "https://restcountries.com/v3.1/independent?status=true"
-    
-    @Published var region =  MKCoordinateRegion()
-    
-    
+  
     func loadCountries() {
         isLoading = true
         
@@ -48,14 +45,7 @@ class ViewModel: ObservableObject {
         return searchResults
     }
     
-    
-    func getRegion(coordinates: [Double])-> MKCoordinateRegion {
-       region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: coordinates[0], longitude: coordinates[1]),
-        span: MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8)
-        )
-        return region
-    }
+
   
 }
 

@@ -16,6 +16,9 @@
 		044645C02E3A371B00B7062B /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645BF2E3A371B00B7062B /* CountryDetailsView.swift */; };
 		044645C22E3B491400B7062B /* CountryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645C12E3B491400B7062B /* CountryRowView.swift */; };
 		044645C42E3C943100B7062B /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645C32E3C943100B7062B /* NetworkModel.swift */; };
+		044645CE2E40E91B00B7062B /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645CD2E40E91B00B7062B /* MapModel.swift */; };
+		044645D02E40E93E00B7062B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645CF2E40E93E00B7062B /* MapView.swift */; };
+		044645D22E40E95D00B7062B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645D12E40E95D00B7062B /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		044645BF2E3A371B00B7062B /* CountryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsView.swift; sourceTree = "<group>"; };
 		044645C12E3B491400B7062B /* CountryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRowView.swift; sourceTree = "<group>"; };
 		044645C32E3C943100B7062B /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		044645CD2E40E91B00B7062B /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		044645CF2E40E93E00B7062B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		044645D12E40E95D00B7062B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 			children = (
 				044645B92E3A367600B7062B /* CountryModel.swift */,
 				044645C32E3C943100B7062B /* NetworkModel.swift */,
+				044645BD2E3A36DE00B7062B /* ViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 				044645AC2E3A363200B7062B /* ContentView.swift */,
 				044645BF2E3A371B00B7062B /* CountryDetailsView.swift */,
 				044645C12E3B491400B7062B /* CountryRowView.swift */,
+				044645CF2E40E93E00B7062B /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,7 +109,8 @@
 		044645BC2E3A36BD00B7062B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				044645BD2E3A36DE00B7062B /* ViewModel.swift */,
+				044645CD2E40E91B00B7062B /* MapModel.swift */,
+				044645D12E40E95D00B7062B /* MapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -176,12 +185,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044645CE2E40E91B00B7062B /* MapModel.swift in Sources */,
+				044645D22E40E95D00B7062B /* MapViewModel.swift in Sources */,
 				044645C02E3A371B00B7062B /* CountryDetailsView.swift in Sources */,
 				044645AD2E3A363200B7062B /* ContentView.swift in Sources */,
 				044645C22E3B491400B7062B /* CountryRowView.swift in Sources */,
 				044645AB2E3A363200B7062B /* CountriesApp.swift in Sources */,
 				044645BE2E3A36DE00B7062B /* ViewModel.swift in Sources */,
 				044645C42E3C943100B7062B /* NetworkModel.swift in Sources */,
+				044645D02E40E93E00B7062B /* MapView.swift in Sources */,
 				044645BA2E3A367600B7062B /* CountryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

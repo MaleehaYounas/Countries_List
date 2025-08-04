@@ -1,18 +1,20 @@
-//
-//  MapViewModel.swift
-//  Countries
-//
-//  Created by MAC on 04/08/2025.
-//
+import Foundation
+import MapKit
 
-import SwiftUI
+class MapViewModel: ObservableObject {
+    @Published var region = MKCoordinateRegion()
+    @Published var markerCoordinate: CLLocationCoordinate2D?
 
-struct MapViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    func setRegionAndMarker(from coordinates: [Double]) {
+        guard coordinates.count == 2 else { return }
+        let lat = coordinates[0]
+        let lon = coordinates[1]
+        let location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        
+        markerCoordinate = location
+        region = MKCoordinateRegion(
+            center: location,
+            span: MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.5)
+        )
     }
-}
-
-#Preview {
-    MapViewModel()
 }

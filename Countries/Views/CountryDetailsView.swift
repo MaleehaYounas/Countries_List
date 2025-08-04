@@ -5,7 +5,6 @@ struct CountryDetailsView: View {
     @Environment(\.dismiss) var dismiss
     var country: Country
     @ObservedObject var viewModel: ViewModel
-    @State private var showMap: Bool = false
 
     var body: some View {
         ScrollView {
@@ -17,17 +16,7 @@ struct CountryDetailsView: View {
                 Text("Geography").font(.headline)
                 GeographySection
 
-                if showMap {
-                    Map(
-                        coordinateRegion: $viewModel.region,
-                        interactionModes: .all,
-                        showsUserLocation: false
-                    )
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 200)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
-
+               
                 Text("Population & Society").font(.headline)
                 PopulationSection
 
@@ -84,14 +73,18 @@ struct CountryDetailsView: View {
            
                 Text("Latitude, Longitude: \(country.latlng.map { String(format: "%.2f", $0) }.joined(separator: ", "))")
 
-               
-                Toggle("Show Map", isOn: $showMap)
-                    .onChange(of: showMap, { oldValue, newValue in
-                        if newValue {
-                            viewModel.region = viewModel.getRegion(coordinates: country.latlng)
+            NavigationLink(
+                destination: MapView(coordinates: country.latlng),
+                label: {
+                    Text("Show Map")
+                        .foregroundColor(.white)
+                        .padding(6)
+                        .background {
+                            RoundedRectangle(cornerRadius: 4)
+                                .fill(.blue)
                         }
-                    })
-            
+                }
+            )
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -146,4 +139,7 @@ struct CountryDetailsView: View {
         .background(RoundedRectangle(cornerRadius: 12)
             .fill(Color.gray.opacity(0.2)))
     }
+    
+    
+    
 }
