@@ -1,3 +1,4 @@
+
 import SwiftUI
 
 struct CountryDetailsView: View {
@@ -5,52 +6,65 @@ struct CountryDetailsView: View {
     var country: Country
 
     var body: some View {
-        Form {
-            ImageSection
-            NameSection
-            GeographySection
-            PopulationSection
-            LanguageSection
-            CurrencySection
-            CodeSection
-            TimeSection
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                ImageSection
+                Text("Name").font(.headline)
+                NameSection
+
+                Text("Geography").font(.headline)
+                GeographySection
+
+                Text("Population & Society").font(.headline)
+                PopulationSection
+
+                Text("Languages").font(.headline)
+                LanguageSection
+
+                Text("Currencies").font(.headline)
+                CurrencySection
+
+                Text("Codes").font(.headline)
+                CodeSection
+
+                Text("Time & Location").font(.headline)
+                TimeSection
+            }
+            .padding()
         }
         .navigationTitle(country.name.common)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
-    
-    
-    var ImageSection:some View{
-        Section {
-            HStack {
-                Spacer()
-                AsyncImage(url: URL(string: country.flags.png)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 160, height: 110)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                } placeholder: {
-                    Color.gray
-                        .frame(width: 160, height: 110)
-                }
-                
-                Spacer()
-            }
-            .listRowBackground(Color.clear)
-        }
 
+    private var ImageSection: some View {
+            AsyncImage(url: URL(string: country.flags.png)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+            } placeholder: {
+                Color.gray
+                    .frame(width: 300, height: 180)
+        }
     }
-    var NameSection:some View{
-        Section(header: Text("Name")) {
+
+    private var NameSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
             Text("Common: \(country.name.common)")
             Text("Official: \(country.name.official)")
         }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.gray.opacity(0.2))
+    )
     }
-    
-    var GeographySection:some View{
-        Section(header: Text("Geography")) {
+
+
+    private var GeographySection: some View {
+        VStack(alignment: .leading, spacing: 4) {
             Text("Region: \(country.region.rawValue)")
             Text("Subregion: \(country.subregion)")
             Text("Area: \(country.area, specifier: "%.2f") km²")
@@ -62,37 +76,56 @@ struct CountryDetailsView: View {
             }
             Text("Landlocked: \(country.landlocked ? "Yes" : "No")")
             Text("Latitude, Longitude: \(country.latlng.map { String(format: "%.2f", $0) }.joined(separator: ", "))")
-        }
+        }.padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.2))
+        )
     }
-    
-    var PopulationSection:some View{
-        Section(header: Text("Population & Society")) {
+
+    private var PopulationSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
             Text("Population: \(country.population)")
             Text("Independent: \(country.independent ? "Yes" : "No")")
             Text("UN Member: \(country.unMember ? "Yes" : "No")")
             Text("Alt Spellings: \(country.altSpellings.joined(separator: ", "))")
-        }
+        }.padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.2))
+        )
     }
-    
-    var LanguageSection:some View{
-        Section(header: Text("Languages")) {
+
+    private var LanguageSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
             ForEach(country.languages.sorted(by: { $0.key < $1.key }), id: \.key) { key, value in
                 Text("\(key.uppercased()): \(value)")
             }
-        }
+        }.padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.2))
+        )
     }
-    
-    var CurrencySection:some View{
-        Section(header: Text("Currencies")) {
+
+    private var CurrencySection: some View {
+        VStack(alignment: .leading, spacing: 4) {
             ForEach(country.currencies.sorted(by: { $0.key < $1.key }), id: \.key) { code, currency in
                 Text("\(code): \(currency.name) (\(currency.symbol))")
             }
-        }
+        }.padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.2))
+        )
     }
-    
-    var CodeSection:some View{
-        
-        Section(header: Text("Codes")) {
+
+   private var CodeSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
             Text("CCA2: \(country.cca2)")
             Text("CCA3: \(country.cca3)")
             if let ccn3 = country.ccn3 {
@@ -104,15 +137,25 @@ struct CountryDetailsView: View {
             if let fifa = country.fifa {
                 Text("FIFA: \(fifa)")
             }
-        }
+        }.padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.2))
+        )
     }
-    
-    var TimeSection:some View{
-        
-        Section(header: Text("Time & Location")) {
+
+   
+    private var TimeSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
             Text("Time Zones: \(country.timezones.joined(separator: ", "))")
             Text("Continents: \(country.continents.map { $0.rawValue }.joined(separator: ", "))")
             Text("Capital Coordinates: \(country.capitalInfo.latlng.map { String(format: "%.2f", $0) }.joined(separator: ", "))")
-        }
+        }.padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.2))
+        )
     }
 }

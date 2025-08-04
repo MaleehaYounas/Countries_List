@@ -15,6 +15,7 @@
 		044645BE2E3A36DE00B7062B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645BD2E3A36DE00B7062B /* ViewModel.swift */; };
 		044645C02E3A371B00B7062B /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645BF2E3A371B00B7062B /* CountryDetailsView.swift */; };
 		044645C22E3B491400B7062B /* CountryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645C12E3B491400B7062B /* CountryRowView.swift */; };
+		044645C42E3C943100B7062B /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645C32E3C943100B7062B /* NetworkModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		044645BD2E3A36DE00B7062B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		044645BF2E3A371B00B7062B /* CountryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsView.swift; sourceTree = "<group>"; };
 		044645C12E3B491400B7062B /* CountryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRowView.swift; sourceTree = "<group>"; };
+		044645C32E3C943100B7062B /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				044645B92E3A367600B7062B /* CountryModel.swift */,
+				044645C32E3C943100B7062B /* NetworkModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				044645C22E3B491400B7062B /* CountryRowView.swift in Sources */,
 				044645AB2E3A363200B7062B /* CountriesApp.swift in Sources */,
 				044645BE2E3A36DE00B7062B /* ViewModel.swift in Sources */,
+				044645C42E3C943100B7062B /* NetworkModel.swift in Sources */,
 				044645BA2E3A367600B7062B /* CountryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +329,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Countries;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Countries1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -354,7 +358,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Countries;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Countries1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
