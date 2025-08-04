@@ -7,7 +7,8 @@ Concepts learned in this project
 * Networking
   - Fetching data from a url
   - Json Decoding
-  - AsyncImages loading
+  - Async Images loading
+* Displaying maps using coordinates
 * Searching
 * Sort (Alphabetically)
 * Displaying data from url in an organised way
