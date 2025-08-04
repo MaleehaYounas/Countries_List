@@ -4,9 +4,8 @@ struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
     @FocusState private var isInputActive: Bool
     @State private var searchInput: String = ""
-    @State var results: [Country] = []
     @State private var isSortedAlphabetically = false
-
+    
     var body: some View {
         NavigationView {
             Group {
@@ -25,7 +24,7 @@ struct ContentView: View {
                     VStack {
                         searchTextField
 
-                        if !searchInput.isEmpty && results.isEmpty {
+                        if !searchInput.isEmpty && viewModel.results.isEmpty {
                             noSearchResults
                         } else {
                             if !searchInput.isEmpty {
@@ -33,7 +32,7 @@ struct ContentView: View {
                             } else {
                                 List(displayedCountries) { country in
                                     NavigationLink {
-                                        CountryDetailsView(country: country)
+                                        CountryDetailsView(country: country, viewModel: viewModel)
                                     } label: {
                                         CountryRowView(country: country)
                                     }
@@ -68,7 +67,7 @@ struct ContentView: View {
     private var searchResultsSection: some View {
         List(sortedResults) { country in
             NavigationLink {
-                CountryDetailsView(country: country)
+                CountryDetailsView(country: country, viewModel: viewModel)
             } label: {
                 CountryRowView(country: country)
             }
@@ -93,13 +92,13 @@ struct ContentView: View {
                 TextField("Search", text: $searchInput)
                     .focused($isInputActive)
                     .onChange(of: searchInput) {
-                        results = viewModel.getSearchResults(input: searchInput)
+                        viewModel.results = viewModel.getSearchResults(input: searchInput)
                     }
 
                 if !searchInput.isEmpty {
                     Button(action: {
                         searchInput = ""
-                        results = []
+                        viewModel.results = []
                         isInputActive = false
                     }) {
                         Image(systemName: "xmark.circle.fill")
@@ -127,9 +126,9 @@ struct ContentView: View {
 
     private var sortedResults: [Country] {
         if isSortedAlphabetically {
-            return results.sorted { $0.name.common < $1.name.common }
+            return viewModel.results.sorted { $0.name.common < $1.name.common }
         } else {
-            return results
+            return viewModel.results
         }
     }
     
