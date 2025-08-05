@@ -1,18 +1,7 @@
-//
-//  MapModel.swift
-//  Countries
-//
-//  Created by MAC on 04/08/2025.
-//
+import Foundation
+import MapKit
 
-import SwiftUI
-
-struct MapModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    MapModel()
+struct MapPin: Identifiable {
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
 }
