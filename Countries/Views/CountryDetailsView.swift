@@ -72,6 +72,7 @@ struct CountryDetailsView: View {
             Text("Landlocked: \(country.landlocked ? "Yes" : "No")")
            
                 Text("Latitude, Longitude: \(country.latlng.map { String(format: "%.2f", $0) }.joined(separator: ", "))")
+                .textSelection(.enabled)
 
             NavigationLink(
                 destination: MapView(coordinates: country.latlng),
