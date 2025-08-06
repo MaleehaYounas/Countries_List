@@ -19,6 +19,10 @@
 		044645CE2E40E91B00B7062B /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645CD2E40E91B00B7062B /* MapModel.swift */; };
 		044645D02E40E93E00B7062B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645CF2E40E93E00B7062B /* MapView.swift */; };
 		044645D22E40E95D00B7062B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645D12E40E95D00B7062B /* MapViewModel.swift */; };
+		044645E42E42122900B7062B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645E32E42122900B7062B /* TestView.swift */; };
+		044645E82E43286400B7062B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 044645EA2E43286400B7062B /* Localizable.strings */; };
+		044645ED2E43327600B7062B /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645EC2E43327600B7062B /* LocalizationManager.swift */; };
+		044645EF2E43337600B7062B /* BundleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044645EE2E43337600B7062B /* BundleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +36,14 @@
 		044645BF2E3A371B00B7062B /* CountryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsView.swift; sourceTree = "<group>"; };
 		044645C12E3B491400B7062B /* CountryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRowView.swift; sourceTree = "<group>"; };
 		044645C32E3C943100B7062B /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
-		044645CD2E40E91B00B7062B /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		044645CD2E40E91B00B7062B /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapModel.swift; path = ../ViewModels/MapModel.swift; sourceTree = "<group>"; };
 		044645CF2E40E93E00B7062B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		044645D12E40E95D00B7062B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		044645E32E42122900B7062B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		044645E92E43286400B7062B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		044645EB2E43286700B7062B /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/Localizable.strings; sourceTree = "<group>"; };
+		044645EC2E43327600B7062B /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
+		044645EE2E43337600B7062B /* BundleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,7 @@
 		0446459E2E3A363200B7062B = {
 			isa = PBXGroup;
 			children = (
+				044645EA2E43286400B7062B /* Localizable.strings */,
 				044645A92E3A363200B7062B /* Countries */,
 				044645A82E3A363200B7062B /* Products */,
 			);
@@ -90,7 +100,8 @@
 			children = (
 				044645B92E3A367600B7062B /* CountryModel.swift */,
 				044645C32E3C943100B7062B /* NetworkModel.swift */,
-				044645BD2E3A36DE00B7062B /* ViewModel.swift */,
+				044645CD2E40E91B00B7062B /* MapModel.swift */,
+				044645EE2E43337600B7062B /* BundleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -102,6 +113,7 @@
 				044645BF2E3A371B00B7062B /* CountryDetailsView.swift */,
 				044645C12E3B491400B7062B /* CountryRowView.swift */,
 				044645CF2E40E93E00B7062B /* MapView.swift */,
+				044645E32E42122900B7062B /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,8 +121,9 @@
 		044645BC2E3A36BD00B7062B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				044645CD2E40E91B00B7062B /* MapModel.swift */,
+				044645BD2E3A36DE00B7062B /* ViewModel.swift */,
 				044645D12E40E95D00B7062B /* MapViewModel.swift */,
+				044645EC2E43327600B7062B /* LocalizationManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -157,6 +170,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ur,
 			);
 			mainGroup = 0446459E2E3A363200B7062B;
 			productRefGroup = 044645A82E3A363200B7062B /* Products */;
@@ -174,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				044645B22E3A363900B7062B /* Preview Assets.xcassets in Resources */,
+				044645E82E43286400B7062B /* Localizable.strings in Resources */,
 				044645AF2E3A363900B7062B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +202,10 @@
 			files = (
 				044645CE2E40E91B00B7062B /* MapModel.swift in Sources */,
 				044645D22E40E95D00B7062B /* MapViewModel.swift in Sources */,
+				044645E42E42122900B7062B /* TestView.swift in Sources */,
 				044645C02E3A371B00B7062B /* CountryDetailsView.swift in Sources */,
+				044645ED2E43327600B7062B /* LocalizationManager.swift in Sources */,
+				044645EF2E43337600B7062B /* BundleModel.swift in Sources */,
 				044645AD2E3A363200B7062B /* ContentView.swift in Sources */,
 				044645C22E3B491400B7062B /* CountryRowView.swift in Sources */,
 				044645AB2E3A363200B7062B /* CountriesApp.swift in Sources */,
@@ -200,12 +218,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		044645EA2E43286400B7062B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				044645E92E43286400B7062B /* en */,
+				044645EB2E43286700B7062B /* ur */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		044645B32E3A363900B7062B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -269,6 +300,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

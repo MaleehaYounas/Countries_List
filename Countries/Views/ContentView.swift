@@ -5,39 +5,28 @@ struct ContentView: View {
     @FocusState private var isInputActive: Bool
     @State private var searchInput: String = ""
     @State private var isSortedAlphabetically = false
-    
+    @EnvironmentObject var localizationManager: LocalizationManager
+
     var body: some View {
         NavigationView {
             Group {
                 if viewModel.isLoading {
-                    ProgressView("Loading...")
+                    ProgressView("Loading...".localized)
                 } else if let error = viewModel.errorMessage {
                     VStack {
-                        Text("Error: \(error.localizedDescription)")
-                            .foregroundColor(.red)
-                            .padding()
-                        Button("Retry") {
-                            viewModel.loadCountries()
-                        }
+                        displayError(error: error)
+                        retryButton
                     }
                 } else {
                     VStack {
                         searchTextField
-
                         if !searchInput.isEmpty && viewModel.results.isEmpty {
                             noSearchResults
                         } else {
                             if !searchInput.isEmpty {
                                 searchResultsSection
                             } else {
-                                List(displayedCountries) { country in
-                                    NavigationLink {
-                                        CountryDetailsView(country: country, viewModel: viewModel)
-                                    } label: {
-                                        CountryRowView(country: country)
-                                    }
-                                }
-                                .listStyle(.inset)
+                              CountryList
                             }
                         }
 
@@ -45,17 +34,21 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Countries")
+           // .environment(\.layoutDirection,.rightToLeft)
+            .navigationTitle("Countries".localized)
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
-                    Button("Done") {
+                    Button("Done".localized) {
                         isInputActive = false
                     }
                 }
 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    sortButton
+                    HStack{
+                        sortButton
+                        languageMenu
+                    }
                 }
             }
         }
@@ -77,11 +70,10 @@ struct ContentView: View {
 
     private var noSearchResults: some View {
         VStack {
-            ContentUnavailableView("No matching countries found", systemImage: "magnifyingglass.circle")
+            ContentUnavailableView("No matching countries found".localized, systemImage: "magnifyingglass.circle")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-
 
     private var searchTextField: some View {
         VStack {
@@ -131,28 +123,63 @@ struct ContentView: View {
             return viewModel.results
         }
     }
-    
-    private var sortButtonFilled:some View{
+
+    private var sortButtonFilled: some View {
         Image(systemName: "arrow.up.arrow.down.circle.fill")
             .resizable()
-            .frame(width:20, height: 20)
+            .frame(width: 20, height: 20)
     }
-    private var sortButtonUnfilled:some View{
-        Image(systemName:"arrow.up.arrow.down")
+
+    private var sortButtonUnfilled: some View {
+        Image(systemName: "arrow.up.arrow.down")
             .resizable()
-            .frame(width:15, height: 15)
+            .frame(width: 15, height: 15)
     }
-    private var sortButton:some View{
+
+    private var sortButton: some View {
         Button(action: {
             isSortedAlphabetically.toggle()
         }) {
-            if isSortedAlphabetically{
+            if isSortedAlphabetically {
                 sortButtonFilled
-            }
-            else{
+            } else {
                 sortButtonUnfilled
             }
-                
+        }
+    }
+    
+    private var languageMenu:some View{
+        Menu("Language".localized) {
+            Button("English") {
+                localizationManager.selectedLanguage = "en"
+            }
+            Button("اردو") {
+                localizationManager.selectedLanguage = "ur"
+            }
+        }
+
+    }
+    
+    private var CountryList:some View{
+        List(displayedCountries) { country in
+            NavigationLink {
+                CountryDetailsView(country: country, viewModel: viewModel)
+            } label: {
+                CountryRowView(country: country)
+            }
+        }
+        .listStyle(.inset)
+    }
+    
+    private func displayError(error: Error) -> some View{
+        Text("Error: \(error.localizedDescription)".localized)
+            .foregroundColor(.red)
+            .padding()
+    }
+    
+    private var retryButton:some View{
+        Button("Retry".localized) {
+            viewModel.loadCountries()
         }
     }
 }

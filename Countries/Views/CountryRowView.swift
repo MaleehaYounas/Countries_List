@@ -29,7 +29,7 @@ struct CountryRowView: View {
 
     }
     private var NameText:some View{
-        Text(country.name.common)
+        Text(country.name.common.localized)
             .font(.headline)
     }
     

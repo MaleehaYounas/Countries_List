@@ -14,7 +14,7 @@ class MapViewModel: ObservableObject {
         markerCoordinate = location
         region = MKCoordinateRegion(
             center: location,
-            span: MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.5)
+            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
         )
     }
 }

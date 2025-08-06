@@ -70,9 +70,6 @@ struct Name: Codable {
 
 
 
-
-
-
 //let maps: Maps
 // let coatOfArms: CoatOfArms
 // let startOfWeek: StartOfWeek

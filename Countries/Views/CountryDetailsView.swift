@@ -5,33 +5,33 @@ struct CountryDetailsView: View {
     @Environment(\.dismiss) var dismiss
     var country: Country
     @ObservedObject var viewModel: ViewModel
-
+   
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 ImageSection
-                Text("Name").font(.headline)
+                Text("Name".localized).font(.headline)
                 NameSection
 
-                Text("Geography").font(.headline)
+                Text("Geography".localized).font(.headline)
                 GeographySection
 
                
-                Text("Population & Society").font(.headline)
+                Text("Population & Society".localized).font(.headline)
                 PopulationSection
 
-                Text("Languages").font(.headline)
+                Text("Languages".localized).font(.headline)
                 LanguageSection
 
-                Text("Currencies").font(.headline)
+                Text("Currencies".localized).font(.headline)
                 CurrencySection
 
-                Text("Time & Location").font(.headline)
+                Text("Time & Location".localized).font(.headline)
                 TimeSection
             }
             .padding()
         }
-        .navigationTitle(country.name.common)
+        .navigationTitle(country.name.common.localized)
         .navigationBarTitleDisplayMode(.inline)
     }
 
@@ -50,7 +50,7 @@ struct CountryDetailsView: View {
 
     private var NameSection: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Common: \(country.name.common)")
+            Text("Common: \(country.name.common.localized)")
             Text("Official: \(country.name.official)")
         }
         .padding()
