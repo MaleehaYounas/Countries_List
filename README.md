@@ -18,8 +18,8 @@ Concepts learned in this project
 * Displaying data from url in an organised way
 
 Links:-
-Maps: https://codewithchris.com/swiftui-map-annotation/
-String Localisation: https://fatbobman.com/en/posts/localizationapp-1/
-Switching languages in an app: https://medium.com/@ando.metsoyan/creating-dynamic-language-change-in-swiftui-787426ba713e
+* Maps: https://codewithchris.com/swiftui-map-annotation/
+* String Localisation: https://fatbobman.com/en/posts/localizationapp-1/
+* Switching languages in an app: https://medium.com/@ando.metsoyan/creating-dynamic-language-change-in-swiftui-787426ba713e
 
 
